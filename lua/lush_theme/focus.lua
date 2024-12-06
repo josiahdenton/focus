@@ -145,9 +145,9 @@ local theme = lush(function(injected_functions)
         -- NonText        { }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
         Normal({ fg = core, bg = base }), -- Normal text
         -- NormalFloat    { }, -- Normal text in floating windows.
-        -- FloatBorder    { }, -- Border of floating windows.
+        FloatBorder({ fg = green }), -- Border of floating windows.
         -- FloatTitle     { }, -- Title of floating windows.
-        -- NormalNC       { }, -- normal text in non-current windows
+        -- NormalNC({ bg = base_light, blend = 100 }), -- normal text in non-current windows
         Pmenu({ bg = base }), -- Popup menu: Normal item.
         PmenuSel({ fg = green, bg = hazy }), -- Popup menu: Selected item.
         -- PmenuKind      { }, -- Popup menu: Normal item "kind"
@@ -174,7 +174,7 @@ local theme = lush(function(injected_functions)
         -- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
         -- WarningMsg     { }, -- Warning messages
         -- Whitespace     { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
-        Winseparator({ fg = core_dark }), -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
+        -- Winseparator({ fg = core_dark }), -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
         -- WildMenu       { }, -- Current match in 'wildmenu' completion
         -- WinBar         { }, -- Window bar of current window
         -- WinBarNC       { }, -- Window bar of not-current windows
