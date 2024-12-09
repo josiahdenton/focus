@@ -92,6 +92,15 @@ local flash = hsl(60, 90, 80)
 local sunset = flash.darken(60)
 local fire = flash.rotate(-120).darken(40)
 
+local err = hsl(355, 65, 65)
+local errBG = err.darken(90)
+local warn = hsl(23, 100, 60)
+local warnBG = warn.darken(90)
+local info = hsl(286, 66, 65)
+local infoBG = info.darken(90)
+local hint = hsl(181, 78, 53)
+local hintBG = hint.darken(90)
+
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
 ---@diagnostic disable: undefined-global
@@ -255,10 +264,11 @@ local theme = lush(function(injected_functions)
         -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
         -- DiagnosticVirtualTextHint  { } , -- Used for "Hint" diagnostic virtual text.
         -- DiagnosticVirtualTextOk    { } , -- Used for "Ok" diagnostic virtual text.
-        -- DiagnosticUnderlineError   { } , -- Used to underline "Error" diagnostics.
-        -- DiagnosticUnderlineWarn    { } , -- Used to underline "Warn" diagnostics.
-        -- DiagnosticUnderlineInfo    { } , -- Used to underline "Info" diagnostics.
-        -- DiagnosticUnderlineHint    { } , -- Used to underline "Hint" diagnostics.
+        DiagnosticUnderlineError({ fg = err, bg = errBG, gui = "bold" }), -- Used to underline "Error" diagnostics.
+        DiagnosticUnderlineWarn({ fg = warn, bg = warnBG, gui = "bold" }), -- Used to underline "Warn" diagnostics.
+        DiagnosticUnderlineInfo({ fg = info, bg = infoBG, gui = "bold" }), -- Used to underline "Info" diagnostics.
+        DiagnosticUnderlineHint({ fg = hint, bg = hintBG, gui = "bold" }), -- Used to underline "Hint" diagnostics.
+        DiagnosticUnnecessary({ fg = warn, bg = warnBG, gui = "bold" }),
         -- DiagnosticUnderlineOk      { } , -- Used to underline "Ok" diagnostics.
         -- DiagnosticFloatingError    { } , -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
         -- DiagnosticFloatingWarn     { } , -- Used to color "Warn" diagnostic messages in diagnostics float.
