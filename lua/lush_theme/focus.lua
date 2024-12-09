@@ -92,14 +92,14 @@ local flash = hsl(60, 90, 80)
 local sunset = flash.darken(60)
 local fire = flash.rotate(-120).darken(40)
 
-local err = hsl(355, 65, 65)
-local errBG = err.darken(90)
-local warn = hsl(23, 100, 60)
-local warnBG = warn.darken(90)
-local info = hsl(286, 66, 65)
-local infoBG = info.darken(90)
-local hint = hsl(181, 78, 53)
-local hintBG = hint.darken(90)
+local red = hsl(355, 65, 65)
+local redBG = red.darken(90)
+local orange = hsl(23, 100, 60)
+local orangeBG = orange.darken(90)
+-- local info = hsl(286, 66, 65)
+-- local infoBG = info.darken(90)
+-- local hint = hsl(181, 78, 53)
+-- local hintBG = hint.darken(90)
 
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
@@ -128,7 +128,7 @@ local theme = lush(function(injected_functions)
         DiffText({ fg = sunset }), -- Diff mode: Changed text within a changed line |diff.txt|
         Changed({ fg = flash }),
         Added({ fg = green }),
-        Removed({ fg = fire }),
+        Removed({ fg = red }),
         -- EndOfBuffer    { }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
         -- TermCursor     { }, -- Cursor in a focused terminal
         -- TermCursorNC   { }, -- Cursor in an unfocused terminal
@@ -264,11 +264,11 @@ local theme = lush(function(injected_functions)
         -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
         -- DiagnosticVirtualTextHint  { } , -- Used for "Hint" diagnostic virtual text.
         -- DiagnosticVirtualTextOk    { } , -- Used for "Ok" diagnostic virtual text.
-        DiagnosticUnderlineError({ fg = err, bg = errBG, gui = "bold" }), -- Used to underline "Error" diagnostics.
-        DiagnosticUnderlineWarn({ fg = warn, bg = warnBG, gui = "bold" }), -- Used to underline "Warn" diagnostics.
-        DiagnosticUnderlineInfo({ fg = info, bg = infoBG, gui = "bold" }), -- Used to underline "Info" diagnostics.
-        DiagnosticUnderlineHint({ fg = hint, bg = hintBG, gui = "bold" }), -- Used to underline "Hint" diagnostics.
-        DiagnosticUnnecessary({ fg = warn, bg = warnBG, gui = "bold" }),
+        DiagnosticUnderlineError({ fg = red, bg = redBG, gui = "bold" }), -- Used to underline "Error" diagnostics.
+        DiagnosticUnderlineWarn({ fg = orange, bg = orangeBG, gui = "bold" }), -- Used to underline "Warn" diagnostics.
+        DiagnosticUnderlineInfo({ fg = orange, bg = orangeBG, gui = "bold" }), -- Used to underline "Info" diagnostics.
+        DiagnosticUnderlineHint({ fg = orange, bg = orangeBG, gui = "bold" }), -- Used to underline "Hint" diagnostics.
+        DiagnosticUnnecessary({ fg = orange, bg = orangeBG, gui = "bold" }),
         -- DiagnosticUnderlineOk      { } , -- Used to underline "Ok" diagnostics.
         -- DiagnosticFloatingError    { } , -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
         -- DiagnosticFloatingWarn     { } , -- Used to color "Warn" diagnostic messages in diagnostics float.
